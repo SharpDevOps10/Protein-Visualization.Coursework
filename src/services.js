@@ -36,3 +36,25 @@ const pdbSearchService = () => {
 
 export const searchPdbEntry = (searchValue) => pdbSearchService(searchValue);
 
+export const getProteinStructure = (pdbId) => {
+  return new Promise((resolve, reject) => {
+    if (!pdbId) {
+      reject('Invalid identification');
+    } else {
+      pdbId = pdbId.toLowerCase();
+      const searchParams = `${pdbId}/full?encoding=cif&copy_all_categories=false`;
+      httpClient(modelServer + searchParams)
+        .then((response) => {
+          if (!response.ok) {
+            reject('Response error');
+          } else {
+            resolve(response.text());
+          }
+        })
+         .catch((error) => {
+           console.log(error);
+           reject('Error occurred while fetching data');
+         });
+    }
+  });
+};
