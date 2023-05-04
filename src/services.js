@@ -58,3 +58,25 @@ export const getProteinStructure = (pdbId) => {
     }
   });
 };
+
+export const getPdbEntry = (pdbId) => {
+  return new Promise((resolve,reject) => {
+    if (!pdbId) {
+      reject('Invalid identification');
+    } else {
+      pdbId = pdbId.toLowerCase();
+      httpClient(pdbEntryService + pdbId)
+        .then((response) => {
+          if (!response.ok) {
+            reject('Response error');
+          } else {
+            resolve(response.json());
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          reject(error.message);
+        });
+    }
+  });
+};
