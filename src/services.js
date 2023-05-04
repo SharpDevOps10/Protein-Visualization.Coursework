@@ -1,17 +1,17 @@
 'use strict';
-const pbdSearch = 'https://search.rcsb.org/rcsbsearch/v1/query?json=';
+const pdbSearch = 'https://search.rcsb.org/rcsbsearch/v1/query?json=';
 const modelServer = 'https://models.rcsb.org/v1/';
 const pdbEntryService = 'https://data.rcsb.org/rest/v1/core/entry/';
 
 const httpClient = (url, requestOption) => fetch(url, requestOption);
 
-const pbdSearchService = () => {
-  const pbdSearchAbortController = new AbortController();
+const pdbSearchService = () => {
+  const pdbSearchAbortController = new AbortController();
   return (searchValue) => {
     const encodedSearchValue = encodeURI(JSON.stringify(searchValue));
-    pbdSearchAbortController.abort();
-    const signal = pbdSearchAbortController.signal;
-    const url = pbdSearch + encodedSearchValue;
+    pdbSearchAbortController.abort();
+    const signal = pdbSearchAbortController.signal;
+    const url = pdbSearch + encodedSearchValue;
 
     return new Promise((resolve, reject) => {
       httpClient(url, { signal })
@@ -34,5 +34,5 @@ const pbdSearchService = () => {
   };
 };
 
-export const searchPdbEntry = (searchValue) => pbdSearchService(searchValue);
+export const searchPdbEntry = (searchValue) => pdbSearchService(searchValue);
 
