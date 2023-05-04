@@ -34,3 +34,5 @@ const pbdSearchService = () => {
   };
 };
 
+export const searchPdbEntry = (searchValue) => pbdSearchService(searchValue);
+
