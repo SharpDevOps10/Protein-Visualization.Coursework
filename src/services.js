@@ -7,30 +7,27 @@ const httpClient = (url, requestOption) => fetch(url, requestOption);
 
 const pdbSearchService = () => {
   const pdbSearchAbortController = new AbortController();
-  return (searchValue) => {
+  return async (searchValue) => {
     const encodedSearchValue = encodeURI(JSON.stringify(searchValue));
     pdbSearchAbortController.abort();
     const signal = pdbSearchAbortController.signal;
     const url = pdbSearch + encodedSearchValue;
+    try {
+      const response = await httpClient(url, { signal });
+      const contentType = response.headers.get('content-type');
+      if (response.ok && contentType && contentType.includes('application/json')) {
+        return await (response.json());
+      } else {
+        const error = new Error('Failed to fetch search result');
+        error.status = response.status;
+        error.statusText = response.statusText;
+        throw error;
+      }
 
-    return new Promise((resolve, reject) => {
-      httpClient(url, { signal })
-        .then((response) => {
-          const contentType = response.headers.get('content-type');
-          if (response.ok && contentType && contentType.includes('application/json')) {
-            resolve(response.json());
-          } else {
-            const error = new Error('Failed to fetch search result');
-            error.status = response.status;
-            error.statusText = response.statusText;
-            reject(error);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-          reject(error);
-        });
-    });
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   };
 };
 
@@ -54,7 +51,7 @@ export const getProteinStructure = async (pdbId)  => {
 };
 
 export const getPdbEntry = async (pdbId) =>  {
-  if (!pdbId) throw new Error ('Invalid identification');
+  if (!pdbId) throw new Error('Invalid identification');
   const lowerCaseID = pdbId.toLowerCase();
   try {
     const response = httpClient(pdbEntryService + lowerCaseID);
@@ -64,6 +61,6 @@ export const getPdbEntry = async (pdbId) =>  {
     return response.json();
   } catch (error) {
     console.log(error);
-    throw 'Error occurred while fetching data';
+    throw new Error('Error occurred while fetching data');
   }
 };
