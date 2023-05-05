@@ -53,19 +53,17 @@ export const getProteinStructure = async (pdbId)  => {
 
 };
 
-export const getPdbEntry = (pdbId) => new Promise((resolve, reject) => {
-  if (!pdbId) reject('Invalid identification');
+export const getPdbEntry = async (pdbId) =>  {
+  if (!pdbId) throw new Error ('Invalid identification');
   const lowerCaseID = pdbId.toLowerCase();
-  httpClient(pdbEntryService + lowerCaseID)
-    .then((response) => {
-      if (!response.ok) {
-        reject('Response error');
-      }
-      resolve(response.json());
-    })
-    .catch((error) => {
-      console.error(error);
-      reject(error.message);
-    });
-
-});
+  try {
+    const response = httpClient(pdbEntryService + lowerCaseID);
+    if (!response.ok) {
+      throw new Error('Response error');
+    }
+    return response.json();
+  } catch (error) {
+    console.log(error);
+    throw 'Error occurred while fetching data';
+  }
+};
