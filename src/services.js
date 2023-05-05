@@ -54,7 +54,7 @@ export const getPdbEntry = async (pdbId) =>  {
     if (!response.ok) {
       throw new Error('Response error');
     }
-    return response.json();
+    return await response.json();
   } catch (error) {
     console.log(error);
     throw new Error('Error occurred while fetching data');
