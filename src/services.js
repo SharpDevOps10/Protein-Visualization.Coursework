@@ -17,16 +17,12 @@ const pdbSearchService = () => {
       const contentType = response.headers.get('content-type');
       if (response.ok && contentType && contentType.includes('application/json')) {
         return await (response.json());
-      } else {
-        const error = new Error('Failed to fetch search result');
-        error.status = response.status;
-        error.statusText = response.statusText;
-        throw error;
       }
+      throw new Error ('Failed to fetch search result');
 
     } catch (error) {
       console.error(error);
-      throw error;
+      throw new Error(error);
     }
   };
 };
