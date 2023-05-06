@@ -32,9 +32,9 @@ export const getResidues = (atomLinesArray) => {
 
 export const getCoordinates = (atomLinesArray) => {
   const coordinatesPosition = {
-    xPos : 10,
-    yPos : 11,
-    zPos : 12
+    xPos: 10,
+    yPos: 11,
+    zPos: 12
   };
   const coordinates = atomLinesArray.map((atomLine) => {
     if (!atomLine) return;
@@ -42,7 +42,7 @@ export const getCoordinates = (atomLinesArray) => {
     const x = lineArray[coordinatesPosition.xPos];
     const y = lineArray[coordinatesPosition.yPos];
     const z = lineArray[coordinatesPosition.zPos];
-    return {x,y,z};
+    return { x, y, z };
   });
   return coordinates;
 };
