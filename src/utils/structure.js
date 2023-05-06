@@ -14,4 +14,10 @@ export const getAtomCoordinates = (structure) => {
     });
   }
   return atomCoordinates;
+}
+
+export const filterAtomLines = (atom, atomLinesArray) => {
+  return atomLinesArray.filter((atomLine) => {
+    atomLine.includes(`${atom}`);
+  });
 };
