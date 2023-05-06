@@ -14,4 +14,4 @@ export const getAtomCoordinates = (structure) => {
     });
   }
   return atomCoordinates;
-}
+};
