@@ -18,7 +18,7 @@ const pdbSearchService = () => {
       if (response.ok && contentType && contentType.includes('application/json')) {
         return await (response.json());
       }
-      throw new Error ('Failed to fetch search result');
+      throw new Error('Failed to fetch search result');
 
     } catch (error) {
       console.error(error);
@@ -30,7 +30,7 @@ const pdbSearchService = () => {
 export const searchPdbEntry = (searchValue) => pdbSearchService(searchValue);
 
 export const getProteinStructure = async (pdbId)  => {
-  if (!pdbId) throw ('Invalid identification');
+  if (!pdbId) throw new Error('Invalid identification');
   const lowerCaseID = pdbId.toLowerCase();
   const searchParams = `${lowerCaseID}/full?encoding=cif&copy_all_categories=false`;
   try {
@@ -41,7 +41,7 @@ export const getProteinStructure = async (pdbId)  => {
     return response.text();
   } catch (error) {
     console.log(error);
-    throw 'Error occurred while fetching data';
+    throw new Error('Error occurred while fetching data');
   }
 
 };
