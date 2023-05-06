@@ -19,3 +19,14 @@ export const getAtomCoordinates = (structure) => {
 export const filterAtomLines = (atom, atomLinesArray) => atomLinesArray.filter((atomLine) => {
   atomLine.includes(`${atom}`);
 });
+
+export const getResidues = (atomLinesArray) => {
+  let residues = [];
+  const residuePosition = 4;
+  residues = atomLinesArray.map((atomLine => {
+    if (!atomLine) return;
+    const lineArray = atomLine.split(' ');
+    return lineArray.length > residuePosition ? lineArray[residuePosition] : undefined;
+  }));
+  return residues;
+}
