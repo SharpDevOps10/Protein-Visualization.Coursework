@@ -50,7 +50,7 @@ export const getCoordinates = (atomLinesArray) => {
 };
 
 export const calcPairwiseDistances = (coordinates) => {
-  const pairWiseDistances = [];
+  const pairwiseDistance = [];
   try {
     if (coordinates && coordinates.length > 1) {
       const numPoints = coordinates.length;
@@ -68,11 +68,11 @@ export const calcPairwiseDistances = (coordinates) => {
           );
           singleDistances.push(distance);
         }
-        pairWiseDistances.push(singleDistances);
+        pairwiseDistance.push(singleDistances);
       }
     }
   } catch (error) {
     console.log('Error calculating pairwise distances:', error);
   }
-  return pairWiseDistances;
+  return pairwiseDistance;
 };
