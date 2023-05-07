@@ -16,9 +16,11 @@ export const getAtomCoordinates = (structure) => {
   return atomCoordinates;
 };
 
-export const filterAtomLines = (atom, atomLinesArray) => atomLinesArray.filter((atomLine) => {
-  atomLine.includes(`${atom}`);
-});
+export const filterAtomLines = (atom, atomLinesArray) =>
+  atomLinesArray.filter((atomLine) => {
+    atomLine.includes(`${atom}`);
+  });
+
 
 export const getResidues = (atomLinesArray) => {
   const residuePosition = 4;
@@ -45,4 +47,32 @@ export const getCoordinates = (atomLinesArray) => {
     return { x, y, z };
   });
   return coordinates;
+};
+
+export const calcPairwiseDistances = (coordinates) => {
+  const pairWiseDistance = [];
+  try {
+    if (coordinates && coordinates.length > 1) {
+      const numPoints = coordinates.length;
+      for (let i = 0; i < numPoints - 1; i++) {
+        const point1 = coordinates[i];
+        if (!point1) continue;
+        const singleDistance = [];
+        for (let j = i + 1; j < numPoints; j++) {
+          const point2 = coordinates[j];
+          if (!point2) continue;
+          const distance = Math.sqrt(
+            ((point2.x - point1.x) ** 2) +
+            ((point2.y - point1.y) ** 2) +
+            ((point2.z - point1.z) ** 2)
+          );
+          singleDistance.push(distance);
+        }
+        pairWiseDistance.push(singleDistance);
+      }
+    }
+  } catch (error) {
+    console.log('Error calculating pairwise distances:', error);
+  }
+  return pairWiseDistance;
 };
