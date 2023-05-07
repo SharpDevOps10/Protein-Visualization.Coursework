@@ -50,29 +50,29 @@ export const getCoordinates = (atomLinesArray) => {
 };
 
 export const calcPairwiseDistances = (coordinates) => {
-  const pairWiseDistance = [];
+  const pairWiseDistances = [];
   try {
     if (coordinates && coordinates.length > 1) {
       const numPoints = coordinates.length;
       for (let i = 0; i < numPoints - 1; i++) {
-        const point1 = coordinates[i];
-        if (!point1) continue;
-        const singleDistance = [];
+        const pointA = coordinates[i];
+        if (!pointA) continue;
+        const singleDistances = [];
         for (let j = i + 1; j < numPoints; j++) {
-          const point2 = coordinates[j];
-          if (!point2) continue;
+          const pointB = coordinates[j];
+          if (!pointB) continue;
           const distance = Math.sqrt(
-            ((point2.x - point1.x) ** 2) +
-            ((point2.y - point1.y) ** 2) +
-            ((point2.z - point1.z) ** 2)
+            ((pointB.x - pointA.x) ** 2) +
+            ((pointB.y - pointA.y) ** 2) +
+            ((pointB.z - pointA.z) ** 2)
           );
-          singleDistance.push(distance);
+          singleDistances.push(distance);
         }
-        pairWiseDistance.push(singleDistance);
+        pairWiseDistances.push(singleDistances);
       }
     }
   } catch (error) {
     console.log('Error calculating pairwise distances:', error);
   }
-  return pairWiseDistance;
+  return pairWiseDistances;
 };
