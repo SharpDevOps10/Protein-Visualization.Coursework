@@ -1,11 +1,11 @@
-#primary-seq {
+#content-container {
   margin-bottom: 10px;
 }
-.C {
+.protein-chain {
   background-color: black;
   color: white;
 }
-.c2 {
+.amino-acid-icon {
   width: 3em;
   height: 3em;
   border-radius: 50%;
@@ -14,7 +14,7 @@
   vertical-align: middle;
   cursor: pointer;
 }
-.c2:not(.C_terminus):after {
+.amino-acid-icon:not(.C_terminus):after {
   content: "---";
   color: black;
   position: relative;
@@ -25,7 +25,7 @@
 .N_terminus, .C_terminus {
   border: 2px  dashed cyan;
 }
-.l2 {
+.amino-acid-label {
   text-align: center;
   padding-top: 0.5em;
 }
