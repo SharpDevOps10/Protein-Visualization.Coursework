@@ -1,0 +1,16 @@
+.form-controls {
+  width: 50%;
+  margin: 20px auto;
+}
+.form-controls-label {
+  font-family: Arial, serif;
+  color: SkyBlue;
+  text-align: center;
+}
+.form-range-input {
+  width: 100%;
+}
+.form-link {
+  stroke-width: 2;
+  stroke: #ccc;
+}
