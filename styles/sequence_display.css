@@ -1,0 +1,31 @@
+#primary-seq {
+  margin-bottom: 10px;
+}
+.C {
+  background-color: black;
+  color: white;
+}
+.c2 {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 1em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.c2:not(.C_terminus):after {
+  content: "---";
+  color: black;
+  position: relative;
+  top: -1.2em;
+  left: 3em;
+  cursor: default;
+}
+.N_terminus, .C_terminus {
+  border: 2px  dashed cyan;
+}
+.l2 {
+  text-align: center;
+  padding-top: 0.5em;
+}
