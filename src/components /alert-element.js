@@ -7,4 +7,9 @@ export class AlertElement extends HTMLElement {
     this._alertText = this.getAttribute('alert-text');
     this.render();
   }
+
+  static get observedAttributes() {
+    return ['enabled', 'alert-type', 'alert-text'];
+  }
+
 }
