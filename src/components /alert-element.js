@@ -12,4 +12,8 @@ export class AlertElement extends HTMLElement {
     return ['enabled', 'alert-type', 'alert-text'];
   }
 
+  set isActive(val) {
+    val ? this.setAttribute('enabled', '') : this.removeAttribute('enabled');
+  }
+
 }
