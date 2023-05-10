@@ -16,4 +16,11 @@ export class AlertElement extends HTMLElement {
     val ? this.setAttribute('enabled', '') : this.removeAttribute('enabled');
   }
 
+  set alertProperties (val) {
+    this.setAttribute('alert-type', val);
+    this.setAttribute('alert-text', val);
+  }
+
+
+
 }
