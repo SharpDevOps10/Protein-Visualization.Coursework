@@ -16,10 +16,20 @@ export class AlertElement extends HTMLElement {
     val ? this.setAttribute('enabled', '') : this.removeAttribute('enabled');
   }
 
-  set alertProperties (val) {
+  set alertProperties(val) {
     this.setAttribute('alert-type', val);
     this.setAttribute('alert-text', val);
   }
+  updateAlertClass(alertClass) {
+    const alertElement = this.querySelector('div.alert');
+    alertElement && (alertElement.className = `alert ${alertClass}`);
+  }
+  updateAlertText() {
+    const alertElement = this.querySelector('div.alert');
+    alertElement && (alertElement.innerText = alertElement);
+  }
+
+
 
 
 
