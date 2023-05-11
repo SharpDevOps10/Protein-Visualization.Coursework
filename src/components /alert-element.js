@@ -22,11 +22,11 @@ export class AlertElement extends HTMLElement {
   }
   updateAlertClass(alertClass) {
     const alertElement = this.getAlertElement();
-    alertElement && (alertElement.className = `alert ${alertClass}`);
+    if (alertElement) alertElement.classList.add(alertClass);
   }
-  updateAlertText() {
+  updateAlertText(alertText) {
     const alertElement = this.getAlertElement();
-    alertElement && (alertElement.innerText = alertElement);
+    if (alertElement) alertElement.textContent = alertText;
   }
   getAlertElement() {
     return this.querySelector('div.alert');
