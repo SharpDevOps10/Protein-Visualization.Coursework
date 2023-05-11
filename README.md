@@ -10,7 +10,7 @@ There are some links that were used in this coursework :
 * `The ATOM records` present the atomic coordinates for standard amino acids and nucleotides : https://files.wwpdb.org/pub/pdb/doc/format_descriptions/Format_v33_Letter.pdf (page 187)
 * `A typical PDB file describing a protein` from Wiki : https://en.wikipedia.org/wiki/Protein_Data_Bank_(file_format)
 
-You can see an example of `ATOM Record Format` 
+You can see an example of `ATOM Record Format` (Page 189)
 
 ![image](https://github.com/SharpDevOps10/Protein-Visualization.Coursework/assets/71943754/f9e2419f-8572-4c4d-9e47-785b605f5d54)
 
