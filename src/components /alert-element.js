@@ -48,7 +48,10 @@ export class AlertElement extends HTMLElement {
     }
 
     this.render();
-
+    if (isInitialLoad) {
+      const closeButton = this.querySelector('button');
+      closeButton.addEventListener('click', this.onAlertCloseClick.bind(this));
+    }
   }
 
   onAlertCloseClick() {
