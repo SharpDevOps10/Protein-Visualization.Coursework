@@ -1,9 +1,9 @@
 # About project
-This project was created to show pairwise distances between protein structure. The information about protein is taken from PDB(Protein Data Bank). 
+This project was created to show pairwise distances between protein structures. The information about protein is taken from PDB(Protein Data Bank). 
 My coursework is being developed. The final result will be shown later.
 
 # Information
-As I've mentioned this project took the information about structure from `PDB`.
+As I've mentioned this project takes the information about the structure from `PDB`.
 
 There are some links that were used in this coursework : 
 * The information about `Identifiers in PDB` : https://www.rcsb.org/docs/general-help/identifiers-in-pdb#small-molecule-instance-id
