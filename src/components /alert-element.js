@@ -32,6 +32,25 @@ export class AlertElement extends HTMLElement {
     return this.querySelector('div.alert');
   }
 
+  attributeChangedCallback(attributeName, previousVal, nextVal) {
+    const isInitialLoad = (attributeName === 'enabled' && this.hasAttribute('enabled'));
+    switch (attributeName) {
+    case 'alert-type' :
+      this._alertType = nextVal;
+      if (!isInitialLoad) this.updateAlertClass(nextVal);
+      break;
+    case 'alert-text' :
+      this._alertText = nextVal;
+      if (!isInitialLoad) this.updateAlertText(nextVal);
+      break;
+    default :
+      break;
+    }
+
+    this.render();
+
+  }
+
 
 
 
