@@ -51,6 +51,10 @@ export class AlertElement extends HTMLElement {
 
   }
 
+  onAlertCloseClick() {
+    this.enabled = false;
+  }
+
 
 
 
