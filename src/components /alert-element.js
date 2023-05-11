@@ -28,6 +28,11 @@ export class AlertElement extends HTMLElement {
     const alertElement = this.querySelector('div.alert');
     alertElement && (alertElement.innerText = alertElement);
   }
+  getAlertElement() {
+    return this.querySelector('div.alert');
+  }
+
+
 
 
 
