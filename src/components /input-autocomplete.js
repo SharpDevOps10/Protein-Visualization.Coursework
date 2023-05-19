@@ -15,4 +15,17 @@ export class InputAutocomplete extends HTMLElement {
     this.shadowRootRef.appendChild(componentHtml.content.cloneNode(true));
     this._listItems = [];
   }
+
+  connectedCallback() {
+    const inputElement = this.shadowRootRef.querySelector('input');
+    inputElement.addEventListener('change', (event) => {
+      const value = event.target.value;
+      console.log('Value changed: ', value);
+    });
+    inputElement.addEventListener('keydown', (event) => {
+      const value = event.target.value;
+      console.log("Keydown event: ", value);
+    });
+  }
+
 }
