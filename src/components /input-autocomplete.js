@@ -24,7 +24,7 @@ export class InputAutocomplete extends HTMLElement {
     });
     inputElement.addEventListener('keydown', (event) => {
       const value = event.target.value;
-      console.log("Keydown event: ", value);
+      console.log('Keydown event: ', value);
     });
   }
 
@@ -38,9 +38,7 @@ export class InputAutocomplete extends HTMLElement {
   }
 
   renderItemsOptions() {
-    const optionElements = this._listItems.map((item) => {
-      return `<option>${item}</option>`;
-    });
+    const optionElements = this._listItems.map((item) => `<option>${item}</option>`);
     return optionElements.join('');
   }
 
@@ -48,9 +46,5 @@ export class InputAutocomplete extends HTMLElement {
     this.shadowRootRef.querySelector('datalist')
       .innerHTML = `${this.renderItemsOptions()}`;
   }
-
-
-
-
 
 }
