@@ -74,6 +74,26 @@ export class AlertElement extends HTMLElement {
     }
   }
 
+  render() {
+    this.innerHTML = this.hasAttribute('enabled')
+      ? `
+      <style>
+        alert-element {
+          position: absolute;
+          width: 100%;
+        }
+        button {
+          float: right;
+        }
+      </style>
+      <div class="alert ${this.getAlertClass(this._alertType) || 'alert-info'}" role="alert">
+        ${this._alertText}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    `
+      : ``;
+  }
+
 
 
 
