@@ -37,6 +37,13 @@ export class InputAutocomplete extends HTMLElement {
     this.render();
   }
 
+  renderItemsOptions() {
+    const optionElements = this._listItems.map((item) => {
+      return `<option>${item}</option>`;
+    });
+    return optionElements.join('');
+  }
+
 
 
 
