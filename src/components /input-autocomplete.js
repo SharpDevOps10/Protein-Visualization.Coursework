@@ -44,6 +44,11 @@ export class InputAutocomplete extends HTMLElement {
     return optionElements.join('');
   }
 
+  render() {
+    this.shadowRootRef.querySelector('datalist')
+      .innerHTML = `${this.renderItemsOptions()}`;
+  }
+
 
 
 
