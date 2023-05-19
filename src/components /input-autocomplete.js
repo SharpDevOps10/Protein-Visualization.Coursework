@@ -32,6 +32,13 @@ export class InputAutocomplete extends HTMLElement {
     return this._listItems;
   }
 
+  set itemsList(items) {
+    this._listItems = items;
+    this.render();
+  }
+
+
+
 
 
 }
