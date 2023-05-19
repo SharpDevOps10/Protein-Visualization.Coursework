@@ -28,4 +28,10 @@ export class InputAutocomplete extends HTMLElement {
     });
   }
 
+  get itemsList() {
+    return this._listItems;
+  }
+
+
+
 }
