@@ -82,6 +82,21 @@ export default class GraphControls extends HTMLElement {
     this.dispatchEvent(maxDistanceChangeEvent);
   }
 
+  onMinResGapChange(event) {
+    const newMinPairGap = event.target.valueAsNumber;
+    console.log('Minimum residue pair gap changed: ', newMinPairGap);
+
+    const rangeValueElement = event.target.previousElementSibling;
+    rangeValueElement.innerText = newMinPairGap;
+
+    const minPairChangeEvent = new CustomEvent('min-res-pair-gap-change', {
+      detail: { value: newMinPairGap },
+      bubbles: true,
+    });
+    this.dispatchEvent(minPairChangeEvent);
+  }
+
+
 
 
 }
