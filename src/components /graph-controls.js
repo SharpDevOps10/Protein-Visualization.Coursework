@@ -68,6 +68,10 @@ export default class GraphControls extends HTMLElement {
     controlWrapper.append(maxDistanceInput, minPairGap);
   }
 
+  connectedCallback() {
+    this.createGraphControls();
+  }
+
   onMaxDistanceChange(event) {
     const newMaxDistance = event.target.valueAsNumber;
     console.log('Max distance range changed: ', newMaxDistance);
@@ -95,6 +99,8 @@ export default class GraphControls extends HTMLElement {
     });
     this.dispatchEvent(minPairChangeEvent);
   }
+
+
 
 
 
