@@ -44,5 +44,30 @@ export default class GraphControls extends HTMLElement {
     return rangeLabel;
 
   }
+  createGraphControls() {
+    const defaultMaxDistance = 3;
+    const defaultMinValue = 1;
+    const maxDistanceInput = this.createRangeInput(
+      defaultMaxDistance,
+      defaultMinValue,
+      this._maxDistCutoff,
+      'max-distance',
+      'Maximum distance: ',
+      this.onMaxDistanceChange
+    );
+
+    const minPairGap = this.createRangeInput(
+      defaultMaxDistance,
+      defaultMinValue,
+      this._maxResPairGap,
+      'min-res-gap',
+      'Minimum residue pair gap:',
+      this.onMinResGapChange
+    );
+    const controlWrapper = this.querySelector('#controls-wrapper');
+    controlWrapper.append(maxDistanceInput, minPairGap);
+  }
+
+
 
 }
