@@ -21,27 +21,26 @@ export default class GraphControls extends HTMLElement {
     minResGapInput.setAttribute('max', this._maxDistCutoff);
   }
 
-  createRangeInput(value, min, max, id, label, onChangeCallback) {
+  createRangeInput(value, min, max, id = 'range-id', label, onChangeCallback) {
     const rangeInput = document.createElement('input');
-    rangeInput.setAttribute('type', 'range');
-    rangeInput.setAttribute('value', value);
-    rangeInput.setAttribute('value', value);
-    rangeInput.setAttribute('min', (min || 0).toString());
-    rangeInput.setAttribute('max', (max || 0).toString());
-    rangeInput.setAttribute('step', 1);
-    rangeInput.setAttribute('id', id || 'range-id');
-
+    rangeInput.type = 'range';
+    rangeInput.value = value;
+    rangeInput.min = (min || 0).toString();
+    rangeInput.max = (max || 0).toString();
+    rangeInput.step = '1';
+    rangeInput.id = id;
     rangeInput.addEventListener('change', onChangeCallback);
+
     const rangeValue = document.createElement('span');
-    rangeValue.setAttribute('id', id+'-value');
+    rangeValue.id = `${id}-value`;
     rangeValue.innerText = value;
 
     const rangeLabel = document.createElement('label');
-    rangeLabel.setAttribute('id', id+"-wrapper");
+    rangeLabel.id = `${id}-wrapper`;
     rangeLabel.innerText = label;
-
     rangeLabel.appendChild(rangeValue);
     rangeLabel.appendChild(rangeInput);
+
     return rangeLabel;
 
   }
