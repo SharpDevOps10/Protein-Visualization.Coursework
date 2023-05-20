@@ -100,6 +100,12 @@ export default class GraphControls extends HTMLElement {
     this.dispatchEvent(minPairChangeEvent);
   }
 
+  render() {
+    this.innerHTML = `
+      <div id="controls-wrapper"></div>
+    `;
+  }
+
 
 
 
