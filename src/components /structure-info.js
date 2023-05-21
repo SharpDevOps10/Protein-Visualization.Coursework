@@ -34,6 +34,15 @@ export class StructureInfo extends HTMLElement {
     });
   }
 
+  attributeChangedCallback(attributeName, oldValue, newValue) {
+    if (newValue !== oldValue) {
+      this.pdbID = newValue;
+      this.onPdbChange(newValue);
+    }
+  }
+
+
+
 
 
 
