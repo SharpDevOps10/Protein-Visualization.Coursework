@@ -42,7 +42,16 @@ export class StructureInfo extends HTMLElement {
   }
 
 
+  updateCitation(citation) {
+    const { journal_abbrev, page_first, page_last, rcsb_authors, title, year } = citation[0];
+    const authors = rcsb_authors.join(', ');
+    this.citation = `${authors}, (${year}), ${title}, ${journal_abbrev}, ${page_first}:${page_last}`;
+  }
 
+  render() {
+    this.shadowRootRef.querySelector('#pdb-id').innerHTML = this.pdbID;
+    this.shadowRootRef.querySelector('#citation').innerHTML = this.citation;
+  }
 
 
 
