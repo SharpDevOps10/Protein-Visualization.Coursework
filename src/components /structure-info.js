@@ -43,9 +43,11 @@ export class StructureInfo extends HTMLElement {
 
 
   updateCitation(citation) {
-    const { journal_abbrev, page_first, page_last, rcsb_authors, title, year } = citation[0];
-    const authors = rcsb_authors.join(', ');
-    this.citation = `${authors}, (${year}), ${title}, ${journal_abbrev}, ${page_first}:${page_last}`;
+    const { journalAbbrev, pageFirst, pageLast,
+      rcsbAuthors, title, year } = citation[0];
+    const authors = rcsbAuthors.join(', ');
+    this.citation = `${authors}, (${year}), ${title}, 
+    ${journalAbbrev}, ${pageFirst}:${pageLast}`;
   }
 
   render() {
