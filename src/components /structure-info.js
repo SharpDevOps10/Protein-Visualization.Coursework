@@ -16,9 +16,25 @@ structureComponent.innerHTML = `
 export class StructureInfo extends HTMLElement {
   constructor() {
     super();
-    this.shadowRootRef = this.attachShadow({mode: 'open'});
+    this.shadowRootRef = this.attachShadow({ mode: 'open' });
     this.shadowRootRef.appendChild(structureComponent.content.cloneNode(true));
     this.pdbID = null;
     this.cititation = null;
   }
+
+  static get observedAttribute() {
+    return ['pdb-id'];
+  }
+
+  onPdbChange(pdbID) {
+    getPdbEntry(pdbID).then((entry) => {
+      const { citation } = entry;
+      this.updateCitation(citation);
+      this.render();
+    });
+  }
+
+
+
+
 }
