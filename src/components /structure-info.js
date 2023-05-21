@@ -12,3 +12,13 @@ structureComponent.innerHTML = `
     }
   </style>
 `;
+
+export class StructureInfo extends HTMLElement {
+  constructor() {
+    super();
+    this.shadowRootRef = this.attachShadow({mode: 'open'});
+    this.shadowRootRef.appendChild(structureComponent.content.cloneNode(true));
+    this.pdbID = null;
+    this.cititation = null;
+  }
+}
