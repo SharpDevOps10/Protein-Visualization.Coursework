@@ -34,4 +34,9 @@ export class SearchResultItem extends HTMLElement {
     this.render();
   }
 
+  render() {
+    this.innerHTML = this._text;
+  }
+
+
 }
