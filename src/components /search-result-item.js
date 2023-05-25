@@ -23,4 +23,15 @@ export class SearchResultItem extends HTMLElement {
     });
   }
 
+  static get observedAttributes() {
+    return ['text'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'text') {
+      this._text = newValue;
+    }
+    this.render();
+  }
+
 }
