@@ -44,6 +44,16 @@ export class SearchInput extends HTMLElement {
       }));
     });
 
+  }
+
+  static get observedAttributes() {
+    return ['main-label'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (newValue && name === 'main-label') {
+      this.querySelector('label').innerHTML = newValue;
+    }
 
   }
 
