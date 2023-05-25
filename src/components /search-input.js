@@ -21,5 +21,31 @@ export class SearchInput extends HTMLElement {
 
   }
 
+  connectedCallback() {
+    const inputElement = this.querySelector('input');
+    inputElement.addEventListener('change', (event) => {
+      console.log('Value changed: ', event.target.value);
+      this.dispatchEvent(new CustomEvent('item-selected', {
+        detail: {
+          value: event.target.value
+        },
+        bubbles: true,
+      }));
+    });
+
+    inputElement.addEventListener('keyup', (event) => {
+      const enteredValue = event.target.value;
+      console.log('Value changed: ', enteredValue);
+      this.dispatchEvent(new CustomEvent('item-selected', {
+        detail: {
+          value: enteredValue
+        },
+        bubbles: true,
+      }));
+    });
+
+
+  }
+
 
 }
