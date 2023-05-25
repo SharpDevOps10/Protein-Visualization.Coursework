@@ -19,7 +19,7 @@ export class StructureInfo extends HTMLElement {
     this.shadowRootRef = this.attachShadow({ mode: 'open' });
     this.shadowRootRef.appendChild(structureComponent.content.cloneNode(true));
     this.pdbID = null;
-    this.cititation = null;
+    this.citation = null;
   }
 
   static get observedAttribute() {
