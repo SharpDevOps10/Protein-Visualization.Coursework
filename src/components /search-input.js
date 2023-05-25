@@ -1,5 +1,5 @@
 'use strict';
-let templateElement = document.createElement('template');
+const templateElement = document.createElement('template');
 templateElement.innerHTML = `
   <style>
     label {
