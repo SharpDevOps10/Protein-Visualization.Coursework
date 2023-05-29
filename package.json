@@ -1,5 +1,6 @@
 {
   "name": "protein-visualization.coursework",
+  "type": "module",
   "version": "1.0.0",
   "description": "A tool for visualizing pairwise distances between protein structure. ",
   "main": "\"\"",

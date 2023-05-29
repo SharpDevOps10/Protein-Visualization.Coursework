@@ -1,5 +1,5 @@
 'use strict';
-import { SearchResultItem } from './search-result-item';
+import { SearchResultItem } from './search-result-item.js';
 
 const componentHtml = document.createElement('template');
 componentHtml.innerHTML = `
