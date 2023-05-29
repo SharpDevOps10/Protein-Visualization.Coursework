@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/SharpDevOps10/Protein-Visualization.Coursework/issues"
   },
-  "homepage": "https://github.com/SharpDevOps10/Protein-Visualization.Coursework#readme"
+  "homepage": "https://github.com/SharpDevOps10/Protein-Visualization.Coursework#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.2.2"
+  }
+
 }
