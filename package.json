@@ -1,0 +1,24 @@
+{
+  "name": "protein-visualization.coursework",
+  "version": "1.0.0",
+  "description": "A tool for visualizing pairwise distances between protein structure. ",
+  "main": "\"\"",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SharpDevOps10/Protein-Visualization.Coursework.git"
+  },
+  "keywords": [
+    "biology",
+    "pdb-structure",
+    "course-project"
+  ],
+  "author": "Daniil Timofeev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SharpDevOps10/Protein-Visualization.Coursework/issues"
+  },
+  "homepage": "https://github.com/SharpDevOps10/Protein-Visualization.Coursework#readme"
+}
