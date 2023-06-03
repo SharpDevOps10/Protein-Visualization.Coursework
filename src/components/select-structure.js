@@ -41,4 +41,15 @@ export class SelectStructure extends HTMLElement {
       );
     });
   }
+
+  dispatchXhrStateEvent(state) {
+    this.dispatchEvent(
+      new CustomEvent('xhr-state', {
+        detail: {
+          value: state,
+        },
+        bubbles: true,
+      })
+    );
+  }
 }
