@@ -52,4 +52,11 @@ export class SelectStructure extends HTMLElement {
       })
     );
   }
+
+  render() {
+    this.innerHTML = `
+      <pdb-search></pdb-search>
+      <structure-info pdb-id=""></structure-info>
+    `;
+  }
 }
