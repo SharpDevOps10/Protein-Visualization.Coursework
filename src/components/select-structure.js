@@ -21,5 +21,24 @@ export class SelectStructure extends HTMLElement {
     });
   }
 
+  handlePdbSelection(pdbId) {
+    console.log('Got pdb selection:', pdbId);
 
+    const structureInfoElement = this.querySelector('structure-info');
+    structureInfoElement.setAttribute('pdb-id', pdbId);
+
+    this.dispatchXhrStateEvent(true);
+
+    getProteinStructure(pdbId).then((fullStructure) => {
+      this.dispatchXhrStateEvent(false);
+      this.dispatchEvent(
+        new CustomEvent('structure-fetched', {
+          detail: {
+            value: fullStructure,
+          },
+          bubbles: true,
+        })
+      );
+    });
+  }
 }
