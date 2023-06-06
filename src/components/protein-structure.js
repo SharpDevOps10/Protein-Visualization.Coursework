@@ -99,4 +99,8 @@ export default class ProteinStructure extends HTMLElement {
       return null;
     }
   };
+
+  render() {
+    this.innerHTML = `<select-structure></select-structure>`;
+  }
 }
