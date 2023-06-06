@@ -2,11 +2,11 @@
 
 import { SelectStructure } from './select-structure.js';
 import {
-  getAtomCoordinates,
-  filterAtomLines,
-  getResidues,
-  getCoordinates,
   calcPairwiseDistances,
+  filterAtomLines,
+  getAtomCoordinates,
+  getCoordinates,
+  getResidues,
 } from '../utils/structure.js';
 
 export default class ProteinStructure extends HTMLElement {
@@ -89,4 +89,14 @@ export default class ProteinStructure extends HTMLElement {
       maxDistCutoff: _maxDistCutoff,
     };
   }
+
+  getMaxDistCutoff = (dist) => {
+    try {
+      const maxDistance = Math.max(...dist);
+      return Math.floor(maxDistance);
+    } catch (ex) {
+      console.log('Exception occurred while calculating max distance cutoff: ', ex);
+      return null;
+    }
+  };
 }
