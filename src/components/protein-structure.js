@@ -23,4 +23,16 @@ export default class ProteinStructure extends HTMLElement {
       this.processStructure(event.detail.value);
     });
   }
+
+  completeCBetaForGlycine(cAlphas, cBetas) {
+    const cBetasCopy = cBetas;
+    if (cAlphas.length > cBetasCopy.length) {
+      cAlphas.forEach((cAlphaLine, index) => {
+        if (cAlphaLine.includes('GLY')) {
+          cBetasCopy.splice(index, 0, cAlphaLine);
+        }
+      });
+    }
+    return cBetasCopy;
+  }
 }
