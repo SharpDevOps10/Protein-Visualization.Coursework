@@ -74,4 +74,19 @@ export default class ProteinStructure extends HTMLElement {
       numResidues: numResidues,
     };
   }
+
+  getPairwiseDistStats(cBetas) {
+    const refAtomCoords = getCoordinates(cBetas);
+    console.log(refAtomCoords);
+
+    const resPairwiseDistances = calcPairwiseDistances(refAtomCoords);
+    const allDistances = resPairwiseDistances.flat();
+    const _maxDistCutoff = this.getMaxDistCutoff(allDistances);
+    console.log('Max pair-wise distance calculated is ', _maxDistCutoff);
+
+    return {
+      resPairwiseDistances: resPairwiseDistances,
+      maxDistCutoff: _maxDistCutoff,
+    };
+  }
 }
