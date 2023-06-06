@@ -64,4 +64,14 @@ export default class ProteinStructure extends HTMLElement {
       this.dispatchCustomEvent('got-pairwise-dist-stats', pairwiseDistStats);
     }
   }
+
+  getResidueStats(cBetas) {
+    const residues = getResidues(cBetas);
+    const numResidues = residues.length;
+    console.log('Number of residues:', numResidues);
+    return {
+      residues: residues,
+      numResidues: numResidues,
+    };
+  }
 }
