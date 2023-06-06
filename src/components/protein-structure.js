@@ -35,4 +35,25 @@ export default class ProteinStructure extends HTMLElement {
     }
     return cBetasCopy;
   }
+
+  processStructure(fullStructure) {
+    const atomLines = getAtomCoordinates(fullStructure);
+    const cAlphas = filterAtomLines('CA', atomLines);
+    console.log('C-alphas:', cAlphas);
+
+    const cBetas = filterAtomLines('CB', atomLines);
+    const cBetasAdjusted = this.completeCBetaForGlycine(cAlphas, cBetas);
+    console.log('C-betas:', cBetas);
+
+    const residueStats = this.getResidueStats(cBetasAdjusted);
+    this.dispatchCustomEvent('got-residue-stats', residueStats);
+
+    if (residueStats.numResidues > 1)  {
+      const pairwiseDistStats = this.getPairwiseDistStats(cBetasAdjusted);
+      this.dispatchCustomEvent('got-pairwise-dist-stats', pairwiseDistStats);
+    }
+
+
+  }
+
 }
