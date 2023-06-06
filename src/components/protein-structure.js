@@ -24,6 +24,17 @@ export default class ProteinStructure extends HTMLElement {
     });
   }
 
+  dispatchCustomEvent(name, eventValue) {
+    this.dispatchEvent(
+      new CustomEvent(name, {
+        detail: {
+          value: eventValue,
+        },
+        bubbles: true,
+      })
+    );
+  }
+
   completeCBetaForGlycine(cAlphas, cBetas) {
     const cBetasCopy = cBetas;
     if (cAlphas.length > cBetasCopy.length) {
@@ -48,12 +59,9 @@ export default class ProteinStructure extends HTMLElement {
     const residueStats = this.getResidueStats(cBetasAdjusted);
     this.dispatchCustomEvent('got-residue-stats', residueStats);
 
-    if (residueStats.numResidues > 1)  {
+    if (residueStats.numResidues > 1) {
       const pairwiseDistStats = this.getPairwiseDistStats(cBetasAdjusted);
       this.dispatchCustomEvent('got-pairwise-dist-stats', pairwiseDistStats);
     }
-
-
   }
-
 }
