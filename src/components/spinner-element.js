@@ -6,8 +6,21 @@ export class SpinnerElement extends HTMLElement {
     this.render();
   }
 
+  static get observedAttributes() {
+    return ['enabled'];
+  }
+
+  set enabled(value) {
+    if (value) {
+      this.setAttribute('enabled', '');
+    } else {
+      this.removeAttribute('enabled');
+    }
+  }
+
   render() {
-    this.innerHTML = this.hasAttribute('enabled') ? `
+    this.innerHTML = this.hasAttribute('enabled')
+      ? `
       <style>
         spinner-element {
           position: absolute;
@@ -34,7 +47,7 @@ export class SpinnerElement extends HTMLElement {
         </div>
       </div>
       <div id="spinner-overlay"></div>
-    ` : ``;
+    `
+      : ``;
   }
-
 }
