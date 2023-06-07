@@ -22,7 +22,7 @@ componentHtml.innerHTML = `
   <div id='graph-container'></div>
 `;
 
-class D3Graph extends HTMLElement {
+export class D3Graph extends HTMLElement {
   constructor() {
     super();
 
