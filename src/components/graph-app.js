@@ -10,6 +10,13 @@ import GraphControls from './graph-controls.js';
 export default class GraphApp extends HTMLElement {
   constructor() {
     super();
+    this.registerDependencies();
+    this.shadowRootRef = this.attachShadow({ mode: 'open' });
+    this.MAX_RESIDUES = 200;
+
+    this.graphHeight = this.getAttribute('graph-height');
+    this.graphWidth = this.getAttribute('graph-width');
+    this.render();
 
   }
 
