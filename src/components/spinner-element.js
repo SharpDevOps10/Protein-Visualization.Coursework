@@ -18,6 +18,12 @@ export class SpinnerElement extends HTMLElement {
     }
   }
 
+  attributeChangedCallback(name) {
+    if (name === 'enabled') {
+      this.render();
+    }
+  }
+
   render() {
     this.innerHTML = this.hasAttribute('enabled')
       ? `
