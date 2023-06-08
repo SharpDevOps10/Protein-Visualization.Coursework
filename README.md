@@ -39,6 +39,9 @@ You can see an example of `ATOM Record Format` (Page 189)
 
 ![image](https://github.com/SharpDevOps10/Protein-Visualization.Coursework/assets/71943754/b40f9fe6-633d-4ea6-be9d-5aa8f26c3e9c)
 
+# Contacts
+If you find any mistake, problem or bug in this project, please contact me : https://t.me/DanioRerio8
+
 # License
 In my course work I used [MIT License](https://github.com/SharpDevOps10/Protein-Visualization.Coursework/blob/master/LICENSE)
 
