@@ -20,31 +20,38 @@ export class AlertElement extends HTMLElement {
     this.setAttribute('alert-type', val);
     this.setAttribute('alert-text', val);
   }
+
   updateAlertClass(alertClass) {
     const alertElement = this.getAlertElement();
     if (alertElement) alertElement.classList.add(alertClass);
   }
+
   updateAlertText(alertText) {
     const alertElement = this.getAlertElement();
     if (alertElement) alertElement.textContent = alertText;
   }
+
   getAlertElement() {
     return this.querySelector('div.alert');
   }
 
   attributeChangedCallback(attributeName, previousVal, nextVal) {
     const isInitialLoad = (attributeName === 'enabled' && this.hasAttribute('enabled'));
-    switch (attributeName) {
-    case 'alert-type' :
-      this._alertType = nextVal;
-      if (!isInitialLoad) this.updateAlertClass(nextVal);
-      break;
-    case 'alert-text' :
-      this._alertText = nextVal;
-      if (!isInitialLoad) this.updateAlertText(nextVal);
-      break;
-    default :
-      break;
+
+    const attributeActions = new Map([
+      ['alert-type', () => {
+        this._alertType = nextVal;
+        if (!isInitialLoad) this.updateAlertClass(nextVal);
+      }],
+      ['alert-text', () => {
+        this._alertText = nextVal;
+        if (!isInitialLoad) this.updateAlertText(nextVal);
+      }]
+    ]);
+
+    const action = attributeActions.get(attributeName);
+    if (action) {
+      action();
     }
 
     this.render();
@@ -93,11 +100,6 @@ export class AlertElement extends HTMLElement {
     `
       : ``;
   }
-
-
-
-
-
 
 
 }
