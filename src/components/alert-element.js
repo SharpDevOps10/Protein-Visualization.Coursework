@@ -66,19 +66,13 @@ export class AlertElement extends HTMLElement {
   }
 
   getAlertClass(alertType) {
-    const alertClasses = {
-      warning: 'alert-warning',
-      error: 'alert-danger',
-      info: 'alert-info',
-    };
-    switch (alertType) {
-    case 'warning':
-      return alertClasses.warning;
-    case 'error':
-      return alertClasses.error;
-    default:
-      return alertClasses.info;
-    }
+    const alertClasses = new Map([
+      ['warning', 'alert-warning'],
+      ['error', 'alert-danger'],
+      ['info', 'alert-info']
+    ]);
+
+    return alertClasses.get(alertType) || alertClasses.get('info');
   }
 
   render() {
